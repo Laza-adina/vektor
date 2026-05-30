@@ -1,0 +1,124 @@
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.accordion-item {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    transition: var(--transition);
+    position: relative;
+    background-color: var(--white);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay sombre — invisible par défaut */
+.accordion-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.65);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.accordion-item.accordion-active::before {
+    opacity: 1;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.accordion-header img {
+    display: none;
+}
+
+.accordion-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    transition: color 0.4s ease;
+}
+
+.accordion-item.accordion-active .accordion-header h2 {
+    color: var(--white);
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 40px;
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 300;
+    transition: var(--transition);
+}
+
+.accordion-item.accordion-active .accordion-header::after {
+    transform: rotate(45deg);
+    color: var(--white);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 40px;
+    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), padding 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.accordion-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 800px;
+    transition: color 0.4s ease;
+}
+
+.accordion-content .btn {
+    margin-bottom: 40px;
+}
+
+.accordion-item.accordion-active {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.accordion-item.accordion-active .accordion-content {
+    max-height: 500px;
+    padding-top: 10px;
+}
+
+.accordion-item.accordion-active .accordion-content p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 24px;
+    }
+    .accordion-header::after {
+        top: 24px;
+        right: 24px;
+    }
+    .accordion-content {
+        padding: 0 24px;
+    }
+    .accordion-content .btn {
+        margin-bottom: 24px;
+    }
+}
