@@ -1,12 +1,12 @@
 /* CONFIGURATIONS ET VARIABLES GLOBALES */
 :root {
-    --primary: #CE6A6B;
-    --bg: #EEE6D8;
+    --primary: #ebb4eb;
+    --bg: #0a0a0a;
     --white: #FFFFFF;
-    --text: #222222;
-    --text-muted: #666666;
-    --glass-bg: rgba(238, 230, 216, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.3);
+    --text: #FFFFFF;
+    --text-muted: #aaaaaa;
+    --glass-bg: rgba(10, 10, 10, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
     --font-title: 'Inter', sans-serif;
     --font-body: 'Roboto', sans-serif;
     --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -71,7 +71,7 @@ a {
 
 .btn-primary {
     background-color: var(--primary);
-    color: var(--white);
+    color: #0a0a0a;
 }
 
 .btn-primary:hover {
@@ -90,13 +90,13 @@ a {
 
 .btn-secondary:hover {
     background-color: var(--white);
-    color: var(--text);
+    color: #0a0a0a;
     transform: translateY(-2px);
 }
 
 .btn-white {
     background-color: var(--white);
-    color: var(--text);
+    color: #0a0a0a;
 }
 
 .btn-white:hover {
@@ -115,6 +115,7 @@ a {
     z-index: 1000;
     padding: 24px 0;
     transition: var(--transition);
+    color: var(--white);
 }
 
 .navbar.scrolled {
@@ -140,7 +141,7 @@ a {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text);
+    color: var(--white);
 }
 
 .nav-links {
@@ -154,6 +155,7 @@ a {
     font-size: 0.95rem;
     position: relative;
     padding: 6px 0;
+    color: var(--white);
 }
 
 .nav-links a::after {
@@ -176,12 +178,14 @@ a {
     padding: 10px 24px;
     font-size: 0.85rem;
     background: transparent;
-    border: 1px solid var(--text);
+    border: 1px solid var(--white);
+    color: var(--white);
 }
 
 .btn-nav:hover {
-    background: var(--text);
-    color: var(--bg);
+    background: var(--primary);
+    color: #0a0a0a;
+    border-color: var(--primary);
 }
 
 .burger {
@@ -196,7 +200,7 @@ a {
 .burger span {
     width: 24px;
     height: 2px;
-    background-color: var(--text);
+    background-color: var(--white);
     transition: var(--transition);
 }
 
@@ -206,10 +210,10 @@ a {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
     color: var(--white);
-    padding: 0 20px;
+    padding: 0 80px;
 }
 
 .hero-small {
@@ -238,17 +242,19 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(34,34,34,0.6) 0%, rgba(34,34,34,0.4) 100%);
+    background: linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 100%);
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 600px;
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.1;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 1;
     margin-bottom: 24px;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
 }
 
 .hero p {
@@ -261,13 +267,14 @@ a {
 .hero-buttons {
     display: flex;
     gap: 20px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* HEADINGS GÉNÉRAUX */
 .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 16px;
+    color: var(--white);
 }
 
 .section-subtitle {
@@ -300,7 +307,6 @@ a {
     position: relative;
 }
 
-/* Base de la carte */
 .carousel-card {
     position: absolute;
     width: 350px;
@@ -313,7 +319,7 @@ a {
     opacity: 0;
     pointer-events: none;
     transform: scale(0.85) translateX(0);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     z-index: 1;
 }
 
@@ -327,19 +333,17 @@ a {
     position: absolute;
     bottom: 40px;
     left: 40px;
-    color: var(--white, #ffffff);
+    color: var(--white);
 }
 
-/* Carte Centrale (Mise en évidence) */
 .carousel-card.active {
     opacity: 1;
     transform: scale(1) translateX(0);
     z-index: 3;
     pointer-events: auto;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
 
-/* Carte Précédente (À gauche) — utilise % uniquement */
 .carousel-card.prev-card {
     opacity: 0.6;
     transform: scale(0.85) translateX(-85%);
@@ -347,7 +351,6 @@ a {
     pointer-events: auto;
 }
 
-/* Carte Suivante (À droite) — utilise % uniquement */
 .carousel-card.next-card {
     opacity: 0.6;
     transform: scale(0.85) translateX(85%);
@@ -357,21 +360,23 @@ a {
 
 .carousel-btn {
     position: absolute;
-    background: var(--white);
-    border: none;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
     width: 60px;
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     font-size: 1.2rem;
     transition: var(--transition);
 }
 
 .carousel-btn:hover {
     background: var(--primary);
-    color: var(--white);
+    color: #0a0a0a;
+    border-color: var(--primary);
 }
 
 .carousel-btn.prev { left: 40px; }
@@ -389,7 +394,7 @@ a {
     position: relative;
     overflow: hidden;
     border-radius: 24px;
-    background-color: #ddd;
+    background-color: #1a1a1a;
 }
 
 .mosaic-item video {
@@ -403,7 +408,6 @@ a {
     transform: scale(1.05);
 }
 
-/* Architecture asymétrique de la mosaïque */
 .item-1 { grid-column: span 4; grid-row: span 2; }
 .item-2 { grid-column: span 5; grid-row: span 1; }
 .item-3 { grid-column: span 3; grid-row: span 2; }
@@ -424,7 +428,7 @@ a {
     top: 0;
     width: 2px;
     height: 100%;
-    background-color: rgba(34,34,34,0.1);
+    background-color: rgba(255,255,255,0.1);
     z-index: 1;
 }
 
@@ -439,8 +443,8 @@ a {
 .step-number {
     width: 62px;
     height: 62px;
-    background-color: var(--white);
-    border: 2px solid var(--text);
+    background-color: #1a1a1a;
+    border: 2px solid rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -448,6 +452,7 @@ a {
     font-family: var(--font-title);
     font-weight: 800;
     font-size: 1.2rem;
+    color: var(--white);
     transition: var(--transition);
     flex-shrink: 0;
 }
@@ -455,7 +460,7 @@ a {
 .timeline-step:hover .step-number {
     background-color: var(--primary);
     border-color: var(--primary);
-    color: var(--white);
+    color: #0a0a0a;
 }
 
 .step-content {
@@ -465,6 +470,7 @@ a {
 .step-content h3 {
     font-size: 1.4rem;
     margin-bottom: 8px;
+    color: var(--white);
 }
 
 .step-content p {
@@ -473,27 +479,41 @@ a {
 
 /* SECTION CTA */
 .cta-section {
-    background-color: #EBACA2;
-    color: var(--white);
+    background-color: var(--primary);
+    color: #0a0a0a;
     padding: 120px 0;
 }
 
 .cta-section h2 {
     font-size: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: 20px;
+    color: #0a0a0a;
 }
 
 .cta-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.8;
+    color: #0a0a0a;
+}
+
+.cta-section .btn-white {
+    background-color: #0a0a0a;
+    color: var(--white);
+}
+
+.cta-section .btn-white:hover {
+    background-color: transparent;
+    color: #0a0a0a;
+    border-color: #0a0a0a;
 }
 
 /* FOOTER */
 .footer {
-    background-color: #1A1A1A;
+    background-color: #050505;
     color: #999999;
     padding: 100px 0 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .footer-grid {
@@ -523,7 +543,7 @@ a {
 }
 
 .footer ul li a:hover {
-    color: var(--white);
+    color: var(--primary);
 }
 
 .newsletter-form {
@@ -548,9 +568,13 @@ a {
 }
 
 .btn-submit {
-    background-color: var(--white);
-    color: var(--text);
+    background-color: var(--primary);
+    color: #0a0a0a;
     padding: 14px 24px;
+}
+
+.btn-submit:hover {
+    background-color: var(--white);
 }
 
 .social-links {
@@ -572,6 +596,7 @@ a {
 
 .social-links a:hover {
     background-color: var(--primary);
+    color: #0a0a0a;
 }
 
 /* ANIMATIONS INTERSECTION OBSERVER */
@@ -636,13 +661,12 @@ a {
     display: flex;
     align-items: center;
     gap: 40px;
-    opacity: 0.2; /* Éteint par défaut */
+    opacity: 0.2;
     transform: translateY(20px);
-    filter: blur(2px); /* Optionnel : léger flou pour accentuer le focus */
+    filter: blur(2px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* L'étape s'allume quand elle arrive au centre de l'écran */
 .process-step-block.focused {
     opacity: 1;
     filter: blur(0);
@@ -654,30 +678,24 @@ a {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
     line-height: 1;
-    color: var(--primary, #000000); /* Utilise ta couleur principale */
+    color: var(--primary);
     transition: transform 0.6s ease;
 }
 
 .process-step-block.focused .process-number {
-    transform: scale(1.15); /* Effet d'impulsion sur le chiffre actif */
+    transform: scale(1.15);
 }
 
 .process-text h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: var(--white);
 }
 
-/* --- RESPONSIVE MOBILE --- */
-@media (max-width: 768px) {
-    .process-step-block {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .process-number {
-        font-size: 4rem;
-    }
+.process-text p {
+    color: var(--text-muted);
 }
+
 /* =========================================
    RESPONSIVE — MOBILE (max-width: 768px)
 ========================================= */
@@ -701,9 +719,15 @@ a {
     }
 
     /* HERO */
+    .hero {
+        justify-content: flex-start;
+        text-align: left;
+        padding: 0 20px;
+    }
+
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     /* CAROUSEL */
@@ -796,5 +820,16 @@ a {
     /* CTA */
     .cta-section {
         padding: 80px 0;
+    }
+
+    /* PROCESS */
+    .process-step-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .process-number {
+        font-size: 4rem;
     }
 }

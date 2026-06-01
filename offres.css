@@ -8,20 +8,19 @@
 .accordion-item {
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
     transition: var(--transition);
     position: relative;
-    background-color: var(--white);
+    background-color: #1a1a1a;
     background-size: cover;
     background-position: center;
 }
 
-/* Overlay sombre — invisible par défaut */
 .accordion-item::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(20, 20, 20, 0.65);
+    background: rgba(10, 10, 10, 0.75);
     opacity: 0;
     transition: var(--transition);
     z-index: 0;
@@ -47,11 +46,12 @@
 .accordion-header h2 {
     font-size: 2rem;
     font-weight: 600;
+    color: var(--white);
     transition: color 0.4s ease;
 }
 
 .accordion-item.accordion-active .accordion-header h2 {
-    color: var(--white);
+    color: var(--primary);
 }
 
 .accordion-header::after {
@@ -61,12 +61,13 @@
     font-family: var(--font-title);
     font-size: 2rem;
     font-weight: 300;
+    color: var(--white);
     transition: var(--transition);
 }
 
 .accordion-item.accordion-active .accordion-header::after {
     transform: rotate(45deg);
-    color: var(--white);
+    color: var(--primary);
 }
 
 .accordion-content {
@@ -94,7 +95,7 @@
 }
 
 .accordion-item.accordion-active {
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 .accordion-item.accordion-active .accordion-content {
@@ -103,10 +104,9 @@
 }
 
 .accordion-item.accordion-active .accordion-content p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.75);
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .accordion-header {
         padding: 24px;

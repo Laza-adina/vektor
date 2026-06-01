@@ -1,4 +1,4 @@
-/* EXTENSION DE STYLES POUR LA PAGE CONTACT */
+/* CONTACT */
 .contact-hero {
     padding-top: 180px;
     padding-bottom: 40px;
@@ -7,6 +7,7 @@
 .contact-hero h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 20px;
+    color: var(--white);
 }
 
 .contact-hero p {
@@ -15,16 +16,16 @@
     max-width: 600px;
 }
 
-/* SYSTÈME DE FORMULAIRE PREMIUM */
 .form-section {
     margin-bottom: 100px;
 }
 
 #contactForm {
-    background-color: var(--white);
+    background-color: #111111;
     padding: 60px;
     border-radius: 32px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 .form-grid {
@@ -50,33 +51,42 @@
     font-family: var(--font-title);
     font-weight: 600;
     font-size: 0.9rem;
+    color: var(--white);
 }
 
-.input-group input, 
-.input-group select, 
+.input-group input,
+.input-group select,
 .input-group textarea {
     width: 100%;
-    background-color: var(--white); /* ← était var(--bg) */
-    border: 4px solid rgba(0,0,0,0.08); /* ← ajoute un léger contour visible */
-    
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 18px 24px;
     border-radius: 12px;
     font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--text);
+    color: var(--white);
     transition: var(--transition);
 }
 
-.input-group input:focus, 
-.input-group select:focus, 
+.input-group select option {
+    background-color: #1a1a1a;
+    color: var(--white);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #555555;
+}
+
+.input-group input:focus,
+.input-group select:focus,
 .input-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    background-color: var(--white);
-    box-shadow: 0 4px 20px rgba(206, 106, 107, 0.05);
+    background-color: #222222;
+    box-shadow: 0 4px 20px rgba(235, 180, 235, 0.08);
 }
 
-/* ERREURS JAVASCRIPT */
 .input-group.error input,
 .input-group.error textarea {
     border-color: #E74C3C;
@@ -104,10 +114,9 @@
     margin-top: 24px;
     font-family: var(--font-title);
     font-weight: 600;
-    text-center: center;
+    text-align: center;
 }
 
-/* SECTION GRANDE CARTES RÉSEAUX */
 .social-grid-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -115,23 +124,27 @@
 }
 
 .social-card {
-    background-color: var(--white);
+    background-color: #111111;
     padding: 40px 30px;
     border-radius: 24px;
     text-align: center;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.01);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+    color: var(--white);
 }
 
 .social-card:hover {
     transform: translateY(-8px);
     background-color: var(--primary);
-    color: var(--white);
+    color: #0a0a0a;
+    border-color: var(--primary);
 }
 
 .social-icon {
     width: 60px;
     height: 60px;
-    background-color: var(--bg);
+    background-color: #1a1a1a;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -139,18 +152,23 @@
     margin: 0 auto 24px auto;
     font-family: var(--font-title);
     font-weight: 800;
-    color: var(--text);
+    color: var(--primary);
     transition: var(--transition);
 }
 
 .social-card:hover .social-icon {
-    background-color: var(--white);
+    background-color: #0a0a0a;
     color: var(--primary);
 }
 
 .social-card h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
+    color: var(--white);
+}
+
+.social-card:hover h3 {
+    color: #0a0a0a;
 }
 
 .social-card p {
@@ -159,10 +177,9 @@
 }
 
 .social-card:hover p {
-    color: rgba(255,255,255,0.8);
+    color: rgba(10,10,10,0.7);
 }
 
-/* RESPONSIVE CONTACT */
 @media (max-width: 992px) {
     .social-grid-cards { grid-template-columns: repeat(2, 1fr); }
 }
