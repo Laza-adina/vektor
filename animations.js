@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.top = '100%';
                 navLinks.style.left = '0';
                 navLinks.style.width = '100%';
-                navLinks.style.backgroundColor = '#EEE6D8';
+                navLinks.style.backgroundColor = 'rgba(34, 34, 34, 0.8)';;
                 navLinks.style.padding = '20px';
                 navLinks.style.gap = '20px';
             }
