@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <!-- Meta Pixel -->
 <script>
     !function(f,b,e,v,n,t,s)
@@ -57,7 +58,7 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content reveal">
-                <h1>DE L'OMBRE À LA TREND.ON DONNE LA BONNE DIRECTION À VOTRE VISIBILITÉ</h1>
+                <h1>ON DONNE LA BONNE DIRECTION À VOTRE VISIBILITÉ</h1>
                 <p></p>
                 <div class="hero-buttons">
                     <a href="contact.html" class="btn btn-primary">Prendre rendez-vous</a>
@@ -69,28 +70,28 @@
         <section class="offres-section section-padding">
             <div class="container text-center reveal">
                 <h2 class="section-title">Nos expertises</h2>
-                <p class="section-subtitle">Des solutions adaptées à chaque étape de votre croissance.</p>
+                <p class="section-subtitle">Tous les vektors pour faire rayonner votre marque.</p>
             </div>
 
             <div class="carousel-container reveal">
                 <button class="carousel-btn prev" aria-label="Précédent">&#8592;</button>
                 <div class="carousel-track">
+                     <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80');">
+                        <div class="card-overlay"></div>
+                        <div class="card-content"><h3>UGC</h3></div>
+                    </div>
+
                     <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80');">
                         <div class="card-overlay"></div>
                         <div class="card-content"><h3>Influence</h3></div>
                     </div>
+
                     <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=600&q=80');">
                         <div class="card-overlay"></div>
-                        <div class="card-content"><h3>Branding</h3></div>
+                        <div class="card-content"><h3>Célebrité</h3></div>
                     </div>
-                    <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-overlay"></div>
-                        <div class="card-content"><h3>Social Media</h3></div>
-                    </div>
-                    <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-overlay"></div>
-                        <div class="card-content"><h3>UGC</h3></div>
-                    </div>
+                  
+                   
                     <div class="carousel-card" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80');">
                         <div class="card-overlay"></div>
                         <div class="card-content"><h3>Production</h3></div>
@@ -100,31 +101,16 @@
             </div>
         </section>
 
-        <section class="mosaic-section section-padding">
+        <!--section mosaic-->
+
+        <section class="tags-section section-padding">
             <div class="container reveal">
-                <h2 class="section-title">Des contenus gérés et ciblés selon vos besoins</h2>
+                <h2 class="section-title">Les marchés qu'on connaît par cœur</h2>
             </div>
-            <div class="mosaic-grid container">
-                <div class="mosaic-item item-1 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
-                </div>
-                <div class="mosaic-item item-2 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
-                </div>
-                <div class="mosaic-item item-3 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
-                </div>
-                <div class="mosaic-item item-4 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
-                </div>
-                <div class="mosaic-item item-5 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
-                </div>
-                <div class="mosaic-item item-6 reveal-up">
-                    <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
-                </div>
-            </div>
+            <canvas id="tagsCanvas"></canvas>
         </section>
+
+        <!--section process-->
 
         <section class="process-section section-padding">
             <div class="container text-center reveal">

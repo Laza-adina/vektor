@@ -226,3 +226,143 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// --- TAGS PHYSIQUE MATTER.JS ---
+const canvas = document.getElementById('tagsCanvas');
+
+if (canvas) {
+    const { Engine, Render, Runner, Bodies, Body, World, Mouse, MouseConstraint, Events } = Matter;
+
+    const W = canvas.parentElement.offsetWidth;
+    const isMobile = window.innerWidth < 768;
+    const H = isMobile ? 750 : 650;
+    canvas.width = W;
+    canvas.height = H;
+
+    const engine = Engine.create({ gravity: { x: 0, y: 2 } });
+    const world = engine.world;
+
+    const render = Render.create({
+        canvas: canvas,
+        engine: engine,
+        options: {
+            width: W,
+            height: H,
+            background: 'transparent',
+            wireframes: false
+        }
+    });
+
+    // Murs invisibles
+    const ground = Bodies.rectangle(W / 2, H + 25, W * 2, 50, { isStatic: true, render: { fillStyle: 'transparent' } });
+    const wallL  = Bodies.rectangle(-25, H / 2, 50, H * 2, { isStatic: true, render: { fillStyle: 'transparent' } });
+    const wallR  = Bodies.rectangle(W + 25, H / 2, 50, H * 2, { isStatic: true, render: { fillStyle: 'transparent' } });
+    World.add(world, [ground, wallL, wallR]);
+
+    const tags = ['Food', 'Beauté', 'Mode', 'Sport', 'Tech', 'Voyage', 'Lifestyle', 'Home'];
+
+    const ph = isMobile ? 75 : 85;
+    const pw = isMobile ? Math.floor(W * 0.52) : Math.floor(W * 0.22);
+    const fontSize = isMobile ? 24 : 26;
+    const r = ph / 2; // border radius = moitié hauteur = pill parfaite
+
+    const bodies = [];
+
+    tags.forEach((label, i) => {
+        const x = Math.random() * (W * 0.5) + W * 0.25;
+        const y = -100 - i * 100;
+
+        // Corps physique rectangle SANS chamfer — on dessine nous-mêmes
+        const body = Bodies.rectangle(x, y, pw, ph, {
+            restitution: 0.35,
+            friction: 0.4,
+            frictionAir: 0.03,
+            render: { fillStyle: 'transparent', strokeStyle: 'transparent', lineWidth: 0 },
+            label: label
+        });
+
+        Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.08);
+        bodies.push({ body, label });
+        World.add(world, body);
+    });
+
+    // Souris — drag uniquement, pas de touch pour laisser scroller
+    const mouse = Mouse.create(canvas);
+    const mouseConstraint = MouseConstraint.create(engine, {
+        mouse,
+        constraint: { stiffness: 0.15, damping: 0.1, render: { visible: false } }
+    });
+
+    // Retire les listeners touch pour ne pas bloquer le scroll
+    mouse.element.removeEventListener('touchstart', mouse.mousemove);
+    mouse.element.removeEventListener('touchmove', mouse.mousemove);
+    mouse.element.removeEventListener('touchend', mouse.mouseup);
+    mouse.element.removeEventListener('touchcancel', mouse.mouseup);
+
+    World.add(world, mouseConstraint);
+
+    // Fonction dessin pill propre
+    function drawPill(ctx, x, y, angle, w, h, label) {
+        const rad = h / 2;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+
+        // Path pill parfaite
+        ctx.beginPath();
+        ctx.moveTo(-w / 2 + rad, -h / 2);
+        ctx.lineTo(w / 2 - rad, -h / 2);
+        ctx.arc(w / 2 - rad, 0, rad, -Math.PI / 2, Math.PI / 2);
+        ctx.lineTo(-w / 2 + rad, h / 2);
+        ctx.arc(-w / 2 + rad, 0, rad, Math.PI / 2, -Math.PI / 2);
+        ctx.closePath();
+
+        ctx.fillStyle = 'rgba(255,255,255,0.05)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(label.toUpperCase(), 0, 0);
+
+        ctx.restore();
+    }
+
+    Events.on(render, 'afterRender', () => {
+        const ctx = render.context;
+        bodies.forEach(({ body, label }) => {
+            drawPill(ctx, body.position.x, body.position.y, body.angle, pw, ph, label);
+        });
+    });
+
+    // Scroll dans la section : écoute le wheel et transmet au document
+    canvas.addEventListener('wheel', (e) => {
+        window.scrollBy(0, e.deltaY);
+    }, { passive: true });
+
+    // Observer
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                Render.run(render);
+                Runner.run(Runner.create(), engine);
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sectionObserver.observe(canvas);
+
+    // Resize
+    window.addEventListener('resize', () => {
+        const newW = canvas.parentElement.offsetWidth;
+        render.canvas.width = newW;
+        render.options.width = newW;
+        Body.setPosition(ground, { x: newW / 2, y: H + 25 });
+        Body.setPosition(wallR, { x: newW + 25, y: H / 2 });
+    });
+}
