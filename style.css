@@ -788,14 +788,52 @@ a {
         padding: 80px 0;
     }
 
-    /* NAV */
+    /* NAVBAR & BURGER BASE */
     .nav-links,
     .btn-nav {
-        display: none;
+        display: none; /* Masque la navigation desktop */
     }
 
     .burger {
-        display: flex;
+        display: flex; /* Affiche le bouton burger */
+    }
+
+    /* --- CORRECTION : STYLE DU MENU MOBILE (via animations.js) --- */
+    #navMobile {
+        display: none; /* Masqué par défaut */
+    }
+
+    #navMobile.open {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98); /* Fond sombre opaque */
+        backdrop-filter: blur(25px); /* Effet de flou haut de gamme */
+        -webkit-backdrop-filter: blur(25px);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+    }
+
+    /* Styles des liens dans le menu mobile */
+    #navMobile a {
+        color: var(--white);
+        font-family: var(--font-title);
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: var(--transition);
+    }
+
+    #navMobile a:hover {
+        color: var(--primary);
+        transform: scale(1.05);
     }
 
     /* HERO */
@@ -898,4 +936,49 @@ a {
     .cta-section {
         padding: 80px 0;
     }
-}
+    /* Masqué par défaut sur mobile */
+    #navMobile {
+        display: none;
+    }
+
+    /* Affiché en plein écran transparent/flouté chic quand le JS ajoute ".open" */
+    #navMobile.open {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98); /* Fond ultra-sombre premium */
+        backdrop-filter: blur(25px); /* Flou d'arrière-plan moderne */
+        -webkit-backdrop-filter: blur(25px);
+        z-index: 999; /* Reste sous le bouton burger (1001) pour pouvoir refermer */
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Style des liens du menu mobile */
+    #navMobile a {
+        color: var(--white);
+        font-family: var(--font-title);
+        font-size: 1.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: var(--transition);
+    }
+
+    /* Changement de couleur au survol / clic */
+    #navMobile a:hover {
+        color: var(--primary);
+    }
+    
+    /* Style spécifique pour le bouton dans le menu mobile */
+    #navMobile .btn-primary {
+        font-size: 1rem;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+} 
