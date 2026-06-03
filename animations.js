@@ -286,20 +286,6 @@ if (canvas) {
         World.add(world, body);
     });
 
-    // Souris — drag uniquement, pas de touch pour laisser scroller
-    const mouse = Mouse.create(canvas);
-    const mouseConstraint = MouseConstraint.create(engine, {
-        mouse,
-        constraint: { stiffness: 0.15, damping: 0.1, render: { visible: false } }
-    });
-
-    // Retire les listeners touch pour ne pas bloquer le scroll
-    mouse.element.removeEventListener('touchstart', mouse.mousemove);
-    mouse.element.removeEventListener('touchmove', mouse.mousemove);
-    mouse.element.removeEventListener('touchend', mouse.mouseup);
-    mouse.element.removeEventListener('touchcancel', mouse.mouseup);
-
-    World.add(world, mouseConstraint);
 
     // Fonction dessin pill propre
     function drawPill(ctx, x, y, angle, w, h, label) {

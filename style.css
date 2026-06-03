@@ -859,9 +859,7 @@ a {
 }
 
 #tagsCanvas {
-    width: 100%;
-    display: block;
-    touch-action: pan-y;
+    pointer-events: none;
 }
 
 .tags-container {
