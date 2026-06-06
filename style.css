@@ -490,17 +490,18 @@ a {
 .tags-section {
     overflow: hidden;
     background-color: #ffffff;
-    padding-bottom: 20px;
+    padding: 60px 0 0 0; /* ← supprime le padding-bottom, réduit le top */
 }
 
 .tags-wrapper {
     position: relative;
     width: 100%;
+    min-height: 400px; /* ← hauteur minimum pour que le bg-text soit visible */
 }
 
 .tags-bg-text {
     position: absolute;
-    top: 30%;
+    top: 50%;                    /* ← centré verticalement dans le canvas */
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-title);
@@ -526,6 +527,7 @@ a {
     position: relative;
     z-index: 1;
 }
+
 .tags-arrow {
     margin-top: 16px;
     display: flex;
@@ -538,18 +540,10 @@ a {
     50%       { transform: translateY(10px); }
 }
 
-/* VIDEO CAROUSEL */
-.video-carousel-section {
-    overflow: hidden;
-    background-color: #ffffff;
-    padding-top: 10px;
-}
-
 .video-carousel-wrapper {
     width: 100%;
     overflow: hidden;
-    position: relative;
-    /* Dégradé sur les bords */
+    margin-top: 0;
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -568,7 +562,7 @@ a {
 
 @keyframes scrollLeft {
     0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* 50% car on a doublé les cards */
+    100% { transform: translateX(-50%); }
 }
 
 .video-card {
@@ -603,15 +597,18 @@ a {
     font-family: var(--font-title);
     font-weight: 700;
     font-size: 1.2rem;
-    letter-spacing: -0.01em;
 }
 
 @media (max-width: 768px) {
+    .tags-section {
+        padding: 40px 0 0 0;
+    }
     .video-card {
         width: 220px;
         height: 220px;
     }
 }
+
 /* =========================================
    SECTION PROCESS
 ========================================= */

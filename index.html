@@ -111,101 +111,90 @@
                 <h2 class="section-title">Les marchés qu'on connaît par cœur</h2>
             </div>
             <div class="tags-wrapper">
-                <div class="tags-bg-text">Dans ton secteur<br><em>d'activité</em></div>
-                <div class="tags-arrow">
-                    <svg width="48" height="80" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24 0 C24 0, 24 55, 24 55" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M8 42 L24 62 L40 42" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    </svg>
+                <div class="tags-bg-text">
+                    Dans ton secteur<br><em>d'activité</em>
+                    <div class="tags-arrow">
+                        <svg width="48" height="80" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 0 C24 0, 24 55, 24 55" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 42 L24 62 L40 42" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
                 </div>
                 <canvas id="tagsCanvas"></canvas>
-                
             </div>
-            <canvas id="tagsCanvas"></canvas>
+        
+            <!-- VIDEO CAROUSEL intégré dans la même section -->
+            <div class="video-carousel-wrapper">
+                <div class="video-carousel-track" id="videoTrack">
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                        <div class="video-card-label">Food</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                        <div class="video-card-label">Beauté</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
+                        <div class="video-card-label">Mode</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
+                        <div class="video-card-label">Sport</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
+                        <div class="video-card-label">Tech</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
+                        <div class="video-card-label">Voyage</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                        <div class="video-card-label">Lifestyle</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                        <div class="video-card-label">Home</div>
+                    </div>
+                    <!-- Doublons pour boucle infinie -->
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                        <div class="video-card-label">Food</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                        <div class="video-card-label">Beauté</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
+                        <div class="video-card-label">Mode</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
+                        <div class="video-card-label">Sport</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
+                        <div class="video-card-label">Tech</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
+                        <div class="video-card-label">Voyage</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                        <div class="video-card-label">Lifestyle</div>
+                    </div>
+                    <div class="video-card">
+                        <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                        <div class="video-card-label">Home</div>
+                    </div>
+                </div>
+            </div>
         </section>
-      <section class="video-carousel-section section-padding">
-    <div class="container reveal">
-        <h2 class="section-title">Nos univers</h2>
-        <p class="section-subtitle">Des contenus pensés pour chaque secteur.</p>
-    </div>
-    <div class="video-carousel-wrapper">
-        <div class="video-carousel-track" id="videoTrack">
-            <!-- Food -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
-                <div class="video-card-label">Food</div>
-            </div>
-            <!-- Beauté -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
-                <div class="video-card-label">Beauté</div>
-            </div>
-            <!-- Mode -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
-                <div class="video-card-label">Mode</div>
-            </div>
-            <!-- Sport -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
-                <div class="video-card-label">Sport</div>
-            </div>
-            <!-- Tech -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
-                <div class="video-card-label">Tech</div>
-            </div>
-            <!-- Voyage -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
-                <div class="video-card-label">Voyage</div>
-            </div>
-            <!-- Lifestyle -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
-                <div class="video-card-label">Lifestyle</div>
-            </div>
-            <!-- Home -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
-                <div class="video-card-label">Home</div>
-            </div>
-            <!-- Doublons pour boucle infinie -->
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
-                <div class="video-card-label">Food</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
-                <div class="video-card-label">Beauté</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
-                <div class="video-card-label">Mode</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
-                <div class="video-card-label">Sport</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
-                <div class="video-card-label">Tech</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
-                <div class="video-card-label">Voyage</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
-                <div class="video-card-label">Lifestyle</div>
-            </div>
-            <div class="video-card">
-                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
-                <div class="video-card-label">Home</div>
-            </div>
-        </div>
-    </div>
-</section>  
+      
       <!--section process-->
 <section class="process-section section-padding">
     <div class="process-inner">
