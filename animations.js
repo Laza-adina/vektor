@@ -122,14 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = item.querySelector('.accordion-content');
             const isActive = item.classList.contains('accordion-active');
 
-            // Fermer tous les autres
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
                 otherItem.classList.remove('accordion-active');
                 const otherContent = otherItem.querySelector('.accordion-content');
                 otherContent.style.maxHeight = null;
             });
 
-            // Ouvrir celui cliqué s'il était fermé
             if (!isActive) {
                 item.classList.add('accordion-active');
                 content.style.maxHeight = content.scrollHeight + 'px';
@@ -163,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         processSteps.forEach(step => stepObserver.observe(step));
     }
 
-    // --- TAGS MATTER.JS (SECTION MOSAÏQUE) ---
+    // --- TAGS MATTER.JS ---
     const canvas = document.getElementById('tagsCanvas');
 
     if (canvas) {
@@ -189,49 +187,52 @@ document.addEventListener('DOMContentLoaded', () => {
         const wallR  = Bodies.rectangle(W + 25, H / 2, 50, H * 2, { isStatic: true, render: { fillStyle: 'transparent' } });
         World.add(world, [ground, wallL, wallR]);
 
-        // Palette de couleurs Fluo / Néon Premium (Fond transparent, Bordure & Texte éclatants)
-        const tagColors = [
-            { bg: 'rgba(235, 180, 235, 0.08)', stroke: '#ebb4eb', text: '#ebb4eb' }, // Rose/Mauve Signature
-            { bg: 'rgba(57, 255, 20, 0.08)',   stroke: '#39FF14', text: '#39FF14' }, // Vert Fluo / Cyber Lime
-            { bg: 'rgba(0, 245, 255, 0.08)',   stroke: '#00F5FF', text: '#00F5FF' }, // Bleu Cyan Électrique
-            { bg: 'rgba(255, 0, 127, 0.08)',   stroke: '#FF007F', text: '#FF007F' }, // Rose Néon / Hot Pink
-            { bg: 'rgba(255, 239, 0, 0.08)',   stroke: '#FFEF00', text: '#FFEF00' }, // Jaune Fluo
-            { bg: 'rgba(189, 0, 255, 0.08)',   stroke: '#BD00FF', text: '#BD00FF' }, // Violet Fluo / Purple
-            { bg: 'rgba(255, 95, 0, 0.08)',    stroke: '#FF5F00', text: '#FF5F00' }, // Orange Néon
-            { bg: 'rgba(0, 255, 204, 0.08)',   stroke: '#00FFCC', text: '#00FFCC' }  // Menthe/Aqua Fluo
+        // Couleurs pleines comme l'image de référence
+        const tags = [
+            { label: 'Food',      fill: '#ffffff', text: '#222222', border: true  },
+            { label: 'Beauté',    fill: '#a8e063', text: '#222222', border: false },
+            { label: 'Mode',      fill: '#ff5c35', text: '#ffffff', border: false },
+            { label: 'Sport',     fill: '#ff5c35', text: '#ffffff', border: false },
+            { label: 'Tech',      fill: '#8b5cf6', text: '#ffffff', border: false },
+            { label: 'Voyage',    fill: '#ffffff', text: '#222222', border: true  },
+            { label: 'Lifestyle', fill: '#8b5cf6', text: '#ffffff', border: false },
+            { label: 'Home',      fill: '#a8e063', text: '#222222', border: false },
         ];
 
-        const tags = ['Food', 'Beauté', 'Mode', 'Sport', 'Tech', 'Voyage', 'Lifestyle', 'Home'];
-        const ph = isMobile ? 75 : 85;
-        const pw = isMobile ? Math.floor(W * 0.52) : Math.floor(W * 0.22);
-        const fontSize = isMobile ? 24 : 26;
+        const ph = isMobile ? 70 : 80;
+        const pw = isMobile ? Math.floor(W * 0.48) : Math.floor(W * 0.20);
+        const fontSize = isMobile ? 22 : 24;
         const bodies = [];
 
-        tags.forEach((label, i) => {
+        tags.forEach((tag, i) => {
             const x = Math.random() * (W * 0.5) + W * 0.25;
             const y = -100 - i * 100;
-            
-            // Sélection automatique de la couleur fluo correspondante
-            const color = tagColors[i % tagColors.length];
 
             const body = Bodies.rectangle(x, y, pw, ph, {
-                restitution: 0.35, friction: 0.4, frictionAir: 0.03,
+                restitution: 0.4,
+                friction: 0.35,
+                frictionAir: 0.025,
                 render: { fillStyle: 'transparent', strokeStyle: 'transparent', lineWidth: 0 },
-                label: label
+                label: tag.label
             });
-            Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.08);
-            
-            // On enregistre l'objet avec sa couleur associée
-            bodies.push({ body, label, color });
+
+            Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.1);
+            bodies.push({ body, tag });
             World.add(world, body);
         });
 
-        // Fonction de dessin modifiée pour accepter la couleur dynamique
-        function drawPill(ctx, x, y, angle, w, h, label, color) {
+        function drawPill(ctx, x, y, angle, w, h, tag) {
             const rad = h / 2;
             ctx.save();
             ctx.translate(x, y);
             ctx.rotate(angle);
+
+            // Ombre douce
+            ctx.shadowColor = 'rgba(0,0,0,0.15)';
+            ctx.shadowBlur = 16;
+            ctx.shadowOffsetY = 6;
+
+            // Forme pill
             ctx.beginPath();
             ctx.moveTo(-w / 2 + rad, -h / 2);
             ctx.lineTo(w / 2 - rad, -h / 2);
@@ -239,29 +240,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.lineTo(-w / 2 + rad, h / 2);
             ctx.arc(-w / 2 + rad, 0, rad, Math.PI / 2, -Math.PI / 2);
             ctx.closePath();
-            
-            // Remplissage avec la couleur fluo transparente (effet de lueur)
-            ctx.fillStyle = color.bg;
+
+            // Fond plein
+            ctx.fillStyle = tag.fill;
             ctx.fill();
-            
-            // Bordure fluo
-            ctx.strokeStyle = color.stroke;
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            // Texte fluo coordonné
-            ctx.fillStyle = color.text;
-            ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+
+            // Contour si fond blanc
+            ctx.shadowColor = 'transparent';
+            if (tag.border) {
+                ctx.strokeStyle = 'rgba(0,0,0,0.18)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            // Texte
+            ctx.fillStyle = tag.text;
+            ctx.font = `700 ${fontSize}px Inter, sans-serif`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(label.toUpperCase(), 0, 0);
+            ctx.fillText(tag.label.toUpperCase(), 0, 0);
+
             ctx.restore();
         }
 
         Events.on(render, 'afterRender', () => {
             const ctx = render.context;
-            // On passe bien la variable "color" à la fonction de dessin
-            bodies.forEach(({ body, label, color }) => drawPill(ctx, body.position.x, body.position.y, body.angle, pw, ph, label, color));
+            bodies.forEach(({ body, tag }) => {
+                drawPill(ctx, body.position.x, body.position.y, body.angle, pw, ph, tag);
+            });
         });
 
         canvas.addEventListener('wheel', (e) => { window.scrollBy(0, e.deltaY); }, { passive: true });

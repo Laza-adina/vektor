@@ -49,12 +49,7 @@
         </div>
     </header>
     
-    <div id="navMobile">
-        <a href="index.html">Accueil</a>
-        <a href="offres.html">Offres</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;">Prendre rendez-vous</a>
-    </div>
+   
  
 
     <main>
@@ -115,9 +110,102 @@
             <div class="container reveal">
                 <h2 class="section-title">Les marchés qu'on connaît par cœur</h2>
             </div>
+            <div class="tags-wrapper">
+                <div class="tags-bg-text">Dans ton secteur<br><em>d'activité</em></div>
+                <div class="tags-arrow">
+                    <svg width="48" height="80" viewBox="0 0 48 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 0 C24 0, 24 55, 24 55" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 42 L24 62 L40 42" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+                <canvas id="tagsCanvas"></canvas>
+                
+            </div>
             <canvas id="tagsCanvas"></canvas>
         </section>
-
+      <section class="video-carousel-section section-padding">
+    <div class="container reveal">
+        <h2 class="section-title">Nos univers</h2>
+        <p class="section-subtitle">Des contenus pensés pour chaque secteur.</p>
+    </div>
+    <div class="video-carousel-wrapper">
+        <div class="video-carousel-track" id="videoTrack">
+            <!-- Food -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                <div class="video-card-label">Food</div>
+            </div>
+            <!-- Beauté -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                <div class="video-card-label">Beauté</div>
+            </div>
+            <!-- Mode -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
+                <div class="video-card-label">Mode</div>
+            </div>
+            <!-- Sport -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
+                <div class="video-card-label">Sport</div>
+            </div>
+            <!-- Tech -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
+                <div class="video-card-label">Tech</div>
+            </div>
+            <!-- Voyage -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
+                <div class="video-card-label">Voyage</div>
+            </div>
+            <!-- Lifestyle -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                <div class="video-card-label">Lifestyle</div>
+            </div>
+            <!-- Home -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                <div class="video-card-label">Home</div>
+            </div>
+            <!-- Doublons pour boucle infinie -->
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                <div class="video-card-label">Food</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                <div class="video-card-label">Beauté</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145535/20036276-hd_1080_1920_30fps_xuypbo.mp4"></video>
+                <div class="video-card-label">Mode</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146034/7721708-uhd_2160_4096_25fps_mys0uw.mp4"></video>
+                <div class="video-card-label">Sport</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145705/13963074_2160_3840_60fps_ajmco8.mp4"></video>
+                <div class="video-card-label">Tech</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145647/8849390-hd_1080_1920_24fps_kdg7fg.mp4"></video>
+                <div class="video-card-label">Voyage</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780145643/12288680_1080_1918_30fps_dudblp.mp4"></video>
+                <div class="video-card-label">Lifestyle</div>
+            </div>
+            <div class="video-card">
+                <video autoplay muted loop playsinline src="https://res.cloudinary.com/dcmnototc/video/upload/v1780146176/7035024-uhd_2160_3840_24fps_hcnqkk.mp4"></video>
+                <div class="video-card-label">Home</div>
+            </div>
+        </div>
+    </div>
+</section>  
       <!--section process-->
 <section class="process-section section-padding">
     <div class="process-inner">
@@ -133,29 +221,29 @@
                 <div class="process-step-block">
                     <div class="process-dot"><span>1</span></div>
                     <div class="process-text">
-                        <h3>Let's Meet</h3>
-                        <p>On échange autour de votre marque, de vos ambitions et de vos besoins.</p>
+                        <h3>Premier café (ou visio) :</h3>
+                        <p>Un café ou une visio pour mettre les ambitions sur la table — sans filtre. Votre marque, vos blocages, ce que vous voulez construire. Spoiler : plus votre ambition est grande, plus on va s'entendre.</p>
                     </div>
                 </div>
                 <div class="process-step-block">
                     <div class="process-dot"><span>2</span></div>
                     <div class="process-text">
-                        <h3>Feu vert</h3>
-                        <p>Vous choisissez l'accompagnement qui vous correspond et nous lançons officiellement la collaboration.</p>
+                        <h3>Alignement </h3>
+                        <p>Vous choisissez la formule qui vous convient le mieux sous nos conseils et on valide ensemble le départ de notre collaboration.</p>
                     </div>
                 </div>
                 <div class="process-step-block">
                     <div class="process-dot"><span>3</span></div>
                     <div class="process-text">
-                        <h3>Session stratégique</h3>
-                        <p>On vous dévoile notre vision : analyse de votre présence actuelle, benchmark, recommandations et concepts créatifs.</p>
+                        <h3>Sessions stratégiques </h3>
+                        <p>On vous présente le projet dans ses grandes lignes vision stratégique et preview créative, le tout déployé à partir des insights clés de votre marché. C'est là qu'on valide et qu'on débloque votre roadmap pour lancer la suite.</p>
                     </div>
                 </div>
                 <div class="process-step-block">
                     <div class="process-dot"><span>4</span></div>
                     <div class="process-text">
-                        <h3>Pilotage & Exécution</h3>
-                        <p>Nous prenons le relais : gestion complète du projet, coordination des actions, suivi des performances et bilan final.</p>
+                        <h3>Full Performance </h3>
+                        <p> On prend le lead. On déploie ce qu'on maîtrise le mieux : une méthode de travail éprouvée et un pilotage quotidien rigoureux pour générer un impact mesurable sur votre business.</p>
                     </div>
                 </div>
             </div>
