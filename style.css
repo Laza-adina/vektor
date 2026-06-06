@@ -485,127 +485,94 @@ a {
 .carousel-btn.next { right: 40px; }
 
 /* =========================================
-   SECTION TAGS (MATTER.JS)
+   MOSAIC SCROLL SECTION
 ========================================= */
-.tags-section {
-    overflow: hidden;
+.mosaic-scroll-section {
     background-color: #ffffff;
-    padding: 60px 0 0 0; /* ← supprime le padding-bottom, réduit le top */
+    overflow: hidden;
+    padding-bottom: 0;
 }
 
-.tags-wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 400px; /* ← hauteur minimum pour que le bg-text soit visible */
-}
-
-.tags-bg-text {
-    position: absolute;
-    top: 50%;                    /* ← centré verticalement dans le canvas */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 800;
-    color: #222222;
-    text-align: center;
-    line-height: 1.2;
-    pointer-events: none;
-    z-index: 0;
-    width: 80%;
-}
-
-.tags-bg-text em {
-    font-style: italic;
-    font-weight: 400;
-}
-
-#tagsCanvas {
-    pointer-events: none;
-    display: block;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
-
-.tags-arrow {
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    animation: bounceArrow 1.8s ease-in-out infinite;
-}
-
-@keyframes bounceArrow {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(10px); }
-}
-
-.video-carousel-wrapper {
+.mosaic-row-wrapper {
     width: 100%;
     overflow: hidden;
-    margin-top: 0;
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    margin-bottom: 16px;
 }
 
-.video-carousel-track {
+.mosaic-row-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.mosaic-row {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     width: max-content;
-    animation: scrollLeft 30s linear infinite;
-    padding: 20px 0;
+    padding: 4px 0;
 }
 
-.video-carousel-track:hover {
+.row-left {
+    animation: mosaicScrollLeft 25s linear infinite;
+}
+
+.row-right {
+    animation: mosaicScrollRight 28s linear infinite;
+}
+
+.mosaic-row:hover {
     animation-play-state: paused;
 }
 
-@keyframes scrollLeft {
+@keyframes mosaicScrollLeft {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-.video-card {
+@keyframes mosaicScrollRight {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.mosaic-vid-card {
     position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 20px;
+    width: 280px;
+    height: 200px;
+    border-radius: 16px;
     overflow: hidden;
     flex-shrink: 0;
     cursor: pointer;
 }
 
-.video-card video {
+.mosaic-vid-card video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.video-card:hover video {
+.mosaic-vid-card:hover video {
     transform: scale(1.06);
 }
 
-.video-card-label {
+.mosaic-vid-card span {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 40px 20px 20px 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    padding: 30px 16px 14px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
     color: #ffffff;
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
-    .tags-section {
-        padding: 40px 0 0 0;
-    }
-    .video-card {
-        width: 220px;
-        height: 220px;
+    .mosaic-vid-card {
+        width: 200px;
+        height: 150px;
+        border-radius: 12px;
     }
 }
 
