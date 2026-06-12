@@ -1,0 +1,460 @@
+/* =========================================
+   SERVICE HERO SPLIT
+========================================= */
+.service-hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 0;
+}
+
+.service-hero-media {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.service-hero-media img,
+.service-hero-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-hero-media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: #ffffff;
+}
+
+.service-hero-tag {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.service-hero-desc {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.service-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    background-color: #ffffff;
+}
+
+.service-label {
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.service-hero-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #222222;
+    margin-bottom: 24px;
+}
+
+.service-hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   SECTION OFFRES GRILLE
+========================================= */
+.service-offers {
+    background-color: #ffffff;
+}
+
+.service-offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.service-offer-card {
+    padding: 48px 40px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: background-color 0.4s ease;
+    background-color: #ffffff;
+}
+
+.service-offer-card:hover {
+    background-color: #f8f8f8;
+}
+
+.service-offer-card:nth-child(3n) {
+    border-right: none;
+}
+
+.service-offer-card:nth-child(n+4) {
+    border-bottom: none;
+}
+
+.service-offer-number {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.service-offer-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.service-offer-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* =========================================
+   SECTION STATS
+========================================= */
+.service-stats {
+    background-color: #111111;
+}
+
+.service-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.stat-block {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.stat-block p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .service-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .service-hero-media {
+        min-height: 60vh;
+    }
+
+    .service-hero-content {
+        padding: 60px 40px;
+        min-height: auto;
+    }
+
+    .service-offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-offer-card:nth-child(3n) {
+        border-right: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .service-offer-card:nth-child(2n) {
+        border-right: none;
+    }
+
+    .service-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-hero-content {
+        padding: 40px 20px;
+    }
+
+    .service-hero-title {
+        font-size: 3rem;
+    }
+
+    .service-offers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-offer-card {
+        border-right: none !important;
+        padding: 32px 24px;
+    }
+
+    .service-offer-card:nth-child(n+4) {
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .service-offer-card:last-child {
+        border-bottom: none;
+    }
+}
+/* =========================================
+   PAGE UGC SPÉCIFIQUE
+========================================= */
+
+/* Stats intro */
+.ugc-stats-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.ugc-stats-intro h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    font-weight: 800;
+}
+
+.ugc-stats-intro em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--primary);
+}
+
+/* Section ce que c'est */
+.ugc-what {
+    background-color: #ffffff;
+}
+
+.ugc-what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.ugc-what-text {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.ugc-what-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.ugc-what-card {
+    background-color: #f8f8f8;
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: var(--transition);
+}
+
+.ugc-what-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.ugc-what-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.ugc-what-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+.ugc-what-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Offres UGC */
+.ugc-offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.ugc-offer-card {
+    background-color: #f8f8f8;
+    border-radius: 24px;
+    padding: 40px 32px;
+    border: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.ugc-offer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.ugc-offer-featured {
+    background-color: #111111;
+    border-color: var(--primary);
+    transform: scale(1.03);
+}
+
+.ugc-offer-featured:hover {
+    transform: scale(1.03) translateY(-6px);
+}
+
+.ugc-offer-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: #222222;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.ugc-offer-tag {
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.ugc-offer-card h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.ugc-offer-featured h3 {
+    color: var(--white);
+}
+
+.ugc-offer-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.ugc-offer-featured .ugc-offer-desc {
+    color: rgba(255,255,255,0.6);
+}
+
+.ugc-offer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ugc-offer-list li {
+    font-size: 0.95rem;
+    color: #444444;
+    padding-left: 20px;
+    position: relative;
+}
+
+.ugc-offer-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.ugc-offer-featured .ugc-offer-list li {
+    color: rgba(255,255,255,0.8);
+}
+
+/* FAQ sur fond sombre */
+.faq-section .section-title {
+    color: var(--white);
+}
+
+/* Responsive UGC */
+@media (max-width: 992px) {
+    .ugc-what-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .ugc-offers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ugc-offer-featured {
+        transform: scale(1);
+    }
+
+    .ugc-offer-featured:hover {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 768px) {
+    .ugc-what-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .service-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
