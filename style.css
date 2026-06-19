@@ -220,6 +220,7 @@ a {
     border: none;
     cursor: pointer;
     z-index: 1001;
+    position: relative;
 }
 
 .burger span {
@@ -228,6 +229,12 @@ a {
     background-color: var(--white);
     transition: var(--transition);
     transform-origin: center;
+}
+
+/* Quand ouvert, le burger garde sa fonction de fermeture mais devient invisible
+   car .nav-mobile-close prend le relais visuellement */
+.burger.open span {
+    background-color: transparent;
 }
 
 .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -406,6 +413,8 @@ a {
 }
 
 .carousel-card {
+
+    display: block; 
     position: absolute;
     width: 350px;
     height: 400px;
