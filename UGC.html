@@ -335,5 +335,33 @@
     </footer>
 
     <script src="animations.js"></script>
+    <script>
+        async function loadPageContent(slug) {
+            const projectId = 'ntsdz448';
+            const query = encodeURIComponent(`*[_type == "page" && slug == "${slug}"][0]{title, "imageUrl": image.asset->url}`);
+            const url = `https://${projectId}.api.sanity.io/v2024-01-01/data/query/production?query=${query}`;
+        
+            try {
+                const res = await fetch(url);
+                const { result } = await res.json();
+                console.log('Sanity result:', result); // pour debug
+        
+                if (result) {
+                    if (result.title) {
+                        const titleEl = document.querySelector('.service-hero-title');
+                        if (titleEl) titleEl.textContent = result.title;
+                    }
+                    if (result.imageUrl) {
+                        const imgEl = document.querySelector('.service-hero-media img');
+                        if (imgEl) imgEl.src = result.imageUrl;
+                    }
+                }
+            } catch (err) {
+                console.error('Erreur chargement Sanity:', err);
+            }
+        }
+        
+        loadPageContent('ugc');
+        </script>
 </body>
 </html>
